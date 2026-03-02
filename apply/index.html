@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>猿份选号申请</title>
+  
+  <script type="module" crossorigin src="../assets/index-550b5850.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/common-d387234a.js">
+  <link rel="modulepreload" crossorigin href="../assets/data-bf50aa34.js">
+  <link rel="stylesheet" href="../assets/common-c265df82.css">
+  <link rel="stylesheet" href="../assets/data-3b6321a1.css">
+</head>
+
+<body>
+  <section class="apply-page">
+    <div id="container">
+      <div id="page-header-wrap" data-title="选号申请表单" data-nav-home-text="返回首页" data-nav-home-href="../index.html" data-nav-text="申请记录" data-nav-href="../apply-record/index.html"></div>
+
+      <!-- 基本信息表单 -->
+      <div class="form-section basic-info-form" id="basic-info-form">
+        <h2>基本信息</h2>
+        <div class="form-grid">
+          <div class="form-group number-multi">
+            <select id="region" class="basic-info-input">
+              <option value="macau" selected>MO</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select id="year" class="basic-info-input"><!-- 选项由 DataReader.generateYearOptions() 在 initYearSelect() 中填充，与记录页一致 --></select>
+          </div>
+          <div class="form-group">
+            <select id="period" class="basic-info-input"></select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 选号申请表单模块 -->
+      <div class="form-section betting-apply-form" id="betting-apply-form" data-module="betting-apply">
+        <div class="section-header">
+          <h2>选号申请</h2>
+          <div class="view-switch">
+            <span class="view-label">视图</span>
+            <button class="view-btn active" onclick="BettingApp.switchView('ascending')" id="view-ascending">
+              升序
+            </button>
+            <button class="view-btn" onclick="BettingApp.switchView('zodiac')" id="view-zodiac">
+              属相
+            </button>
+          </div>
+        </div>
+
+        <div id="buyerList">
+          <!-- 参与人列表将通过JS动态添加 -->
+        </div>
+
+        <!-- 添加参与人按钮 -->
+        <div class="add-buyer-container">
+          <button class="btn btn-primary add-buyer-btn" onclick="BettingApp.addBuyer()">
+            添加参与人
+          </button>
+        </div>
+
+        <!-- 汇总展示区域 -->
+        <div id="totalSummary" class="total-summary">
+          <div class="summary-header">
+            <h3 class="total-summary-title">本回汇总</h3>
+            <div class="summary-controls">
+              <div class="dimension-switch">
+                <button class="dimension-btn active" onclick="BettingApp.switchDimension('buyer')" id="dimension-buyer">
+                  人维度
+                </button>
+                <button class="dimension-btn" onclick="BettingApp.switchDimension('number')" id="dimension-number">
+                  猿份号维度
+                </button>
+              </div>
+              <button class="summary-toggle-btn" onclick="
+                    BettingApp.toggleCollapse(
+                      'total-summary-table',
+                      'total-summary-toggle',
+                    )
+                  " id="total-summary-toggle"></button>
+            </div>
+          </div>
+          <div id="totalSummaryContent"></div>
+        </div>
+
+        <!-- 提交选号按钮 -->
+        <div class="submit-container">
+          <button type="button" class="btn btn-success submit-btn" onclick="BettingApp.submitData()" disabled>
+            提交选号
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="page-footer-wrap"></div>
+  </section>
+</body>
+
+</html>

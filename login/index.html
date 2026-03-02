@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>猿份选号登录</title>
+  
+  <script type="module" crossorigin src="../assets/index-0a5686db.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/common-d387234a.js">
+  <link rel="stylesheet" href="../assets/common-c265df82.css">
+  <link rel="stylesheet" href="../assets/index-c30340ef.css">
+</head>
+
+<body class="login-page">
+  <section class="login-page-section">
+    <div id="container">
+      <div id="page-header-wrap" data-title="猿份选号登录"></div>
+      <div class="form-section login-form-section">
+        <h2 class="form-section-title">Token 设置</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="form-token">FORM TOKEN（普通用户填写）</label>
+            <input type="password" id="form-token" name="formToken" class="form-input" placeholder="选号申请页提交表单 Token" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="api-token">PRIVATE FIND TOKEN（管理员查询）</label>
+            <input type="password" id="api-token" name="apiToken" class="form-input" placeholder="管理员查询 Token" autocomplete="off" />
+          </div>
+          <div class="form-group form-actions">
+            <button type="submit" class="btn btn-primary" id="login-btn">保存并登录</button>
+          </div>
+        </form>
+        <p class="form-hint">保存后请手动点击下方按钮返回首页</p>
+        <a href="../index.html" class="btn btn-success btn-go-home" id="go-home-btn">返回首页</a>
+      </div>
+    </div>
+    <div id="page-footer-wrap"></div>
+  </section>
+</body>
+
+</html>
