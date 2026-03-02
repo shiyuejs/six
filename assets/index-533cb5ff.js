@@ -1,4 +1,4 @@
-import"./common-19b679d2.js";import{i as N}from"./business-wasm-9bc874d6.js";const h={WIN_AMOUNT_PER_NUMBER:45,buyerId:0,betItemId:0,currentView:StorageManager.get("currentView","ascending"),calculateWinningsFromRecords(e,t=!1){if(e.length===0)return{totalBet:0,numberCounts:{},numberBetAmounts:{},numberWinnings:{},topThree:[],topThreeDetails:[]};const i=t?e.filter(l=>!l.fromPrediction):e;if(i.length===0)return{totalBet:0,numberCounts:{},numberBetAmounts:{},numberWinnings:{},topThree:[],topThreeDetails:[]};const n={},o={};let r=0;i.forEach(l=>{r+=l.total,l.numbers.forEach(d=>{n[d]||(n[d]=0,o[d]=0),n[d]++,o[d]+=l.amount})});const s={};Object.keys(o).forEach(l=>{s[l]=o[l]*this.WIN_AMOUNT_PER_NUMBER});const c=Object.entries(s).sort((l,d)=>d[1]-l[1]).slice(0,3),a=c.map(([l,d])=>{const m=o[l],u=n[l],p=d-r;return{number:l,betCount:u,betAmount:m,winningAmount:d,totalBet:r,profit:p}});return{totalBet:r,numberCounts:n,numberBetAmounts:o,numberWinnings:s,topThree:c,topThreeDetails:a}}},B={renderNumberSelector(e,t,i){return h.currentView==="zodiac"?this.renderZodiacView(e,t,i):this.renderAscendingView(e,t)},renderAscendingView(e,t){return t.map(i=>`<div class="number-item ${i.color}" data-value="${i.value}" onclick="BettingApp.toggleNumber(${e}, '${i.value}', 'manual')">${i.value} ${i.zodiacName}</div>`).join("")},renderZodiacView(e,t,i){return DataReader.getNumbersByZodiac(i).map(o=>`
+import"./common-0e22f705.js";import{i as N}from"./business-wasm-9bc874d6.js";const h={WIN_AMOUNT_PER_NUMBER:45,buyerId:0,betItemId:0,currentView:StorageManager.get("currentView","ascending"),calculateWinningsFromRecords(e,t=!1){if(e.length===0)return{totalBet:0,numberCounts:{},numberBetAmounts:{},numberWinnings:{},topThree:[],topThreeDetails:[]};const i=t?e.filter(l=>!l.fromPrediction):e;if(i.length===0)return{totalBet:0,numberCounts:{},numberBetAmounts:{},numberWinnings:{},topThree:[],topThreeDetails:[]};const n={},o={};let r=0;i.forEach(l=>{r+=l.total,l.numbers.forEach(d=>{n[d]||(n[d]=0,o[d]=0),n[d]++,o[d]+=l.amount})});const s={};Object.keys(o).forEach(l=>{s[l]=o[l]*this.WIN_AMOUNT_PER_NUMBER});const c=Object.entries(s).sort((l,d)=>d[1]-l[1]).slice(0,3),a=c.map(([l,d])=>{const m=o[l],u=n[l],p=d-r;return{number:l,betCount:u,betAmount:m,winningAmount:d,totalBet:r,profit:p}});return{totalBet:r,numberCounts:n,numberBetAmounts:o,numberWinnings:s,topThree:c,topThreeDetails:a}}},B={renderNumberSelector(e,t,i){return h.currentView==="zodiac"?this.renderZodiacView(e,t,i):this.renderAscendingView(e,t)},renderAscendingView(e,t){return t.map(i=>`<div class="number-item ${i.color}" data-value="${i.value}" onclick="BettingApp.toggleNumber(${e}, '${i.value}', 'manual')">${i.value} ${i.zodiacName}</div>`).join("")},renderZodiacView(e,t,i){return DataReader.getNumbersByZodiac(i).map(o=>`
           <div class="zodiac-column">
             <div class="zodiac-header">
               <div class="zodiac-number">${o.zodiacNumber}</div>
@@ -23,7 +23,7 @@ import"./common-19b679d2.js";import{i as N}from"./business-wasm-9bc874d6.js";con
               <div class="group">
                 <div style="font-weight:600;margin-bottom:6px;">属相</div>
                 <div class="zodiac-buttons">
-                  ${(typeof Common<"u"&&Common.ZODIAC_NAMES?Common.ZODIAC_NAMES:["机仔","大壮","山君","长耳","云飞","长游","追风","咩咩","小空","晨鸣","阿忠","团团"]).map(s=>`<button type="button" class="quick-select-btn" onclick="BettingApp.quickSelectNumbers(${e}, 'zodiac:${s}')">${s}</button>`).join("")}
+                  ${Common.ZODIAC_NAMES.map(s=>`<button type="button" class="quick-select-btn" onclick="BettingApp.quickSelectNumbers(${e}, 'zodiac:${s}')">${s}</button>`).join("")}
                 </div>
                 <hr />
                 <div style="font-weight:600;margin-bottom:6px;">颜色</div>
@@ -94,7 +94,7 @@ import"./common-19b679d2.js";import{i as N}from"./business-wasm-9bc874d6.js";con
               <label>1. 命中属相（多选）</label>
               <input type="text" class="prediction-quick-input" data-buyer-id="${e}" data-type="zodiac" placeholder="输入十二属相或者别名，失焦后自动勾选" />
               <div class="prediction-number-selector">
-                ${(typeof Common<"u"&&Common.ZODIAC_NAMES?Common.ZODIAC_NAMES:["机仔","大壮","山君","长耳","云飞","长游","追风","咩咩","小空","晨鸣","阿忠","团团"]).map((t,i)=>`<div class="number-item prediction-item" data-type="zodiac" data-value="${t}" id="pred-zodiac-${e}-${i}" onclick="BettingApp.togglePredictionItem(${e}, 'zodiac', '${t}')">${t}</div>`).join("")}
+                ${Common.ZODIAC_NAMES.map((t,i)=>`<div class="number-item prediction-item" data-type="zodiac" data-value="${t}" id="pred-zodiac-${e}-${i}" onclick="BettingApp.togglePredictionItem(${e}, 'zodiac', '${t}')">${t}</div>`).join("")}
               </div>
             </div>
             
