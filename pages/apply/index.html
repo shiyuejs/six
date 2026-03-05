@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>猿份选号申请</title>
     
-    <script type="module" crossorigin src="/six/assets/index-e2eaf695.js"></script>
-    <link rel="modulepreload" crossorigin href="/six/assets/common-f9f3c063.js">
-    <link rel="modulepreload" crossorigin href="/six/assets/be-apply-bf97938b.js">
+    <script type="module" crossorigin src="/six/assets/index-f1d80c42.js"></script>
+    <link rel="modulepreload" crossorigin href="/six/assets/common-649dca6c.js">
+    <link rel="modulepreload" crossorigin href="/six/assets/be-apply-91ee6b5e.js">
     <link rel="stylesheet" href="/six/assets/common-05ffcfb8.css">
-    <link rel="stylesheet" href="/six/assets/be-apply-b36038a1.css">
+    <link rel="stylesheet" href="/six/assets/be-apply-6e00de9b.css">
   </head>
 
   <body>
@@ -48,12 +48,22 @@
         <div class="form-section betting-apply-form" id="betting-apply-form" data-module="betting-apply">
           <div class="section-header">
             <h2>选号申请</h2>
-            <div class="view-switch">
-              <span class="view-label">视图</span>
-              <button class="view-btn active" onclick="BettingApp.switchView('ascending')" id="view-ascending">
-                升序
+            <div class="section-header-actions">
+              <button
+                type="button"
+                class="btn btn-primary view-btn-quick"
+                id="btn-quick-select"
+                title="批量输入后生成选号并提交到当前参与人"
+              >
+                快速选号
               </button>
-              <button class="view-btn" onclick="BettingApp.switchView('zodiac')" id="view-zodiac">属相</button>
+              <div class="view-switch">
+                <span class="view-label">视图</span>
+                <button class="view-btn active" onclick="BettingApp.switchView('ascending')" id="view-ascending">
+                  升序
+                </button>
+                <button class="view-btn" onclick="BettingApp.switchView('zodiac')" id="view-zodiac">属相</button>
+              </div>
             </div>
           </div>
 
@@ -103,5 +113,6 @@
       </div>
       <div id="page-footer-wrap"></div>
     </section>
+    <div id="quick-select-modal-root"></div>
   </body>
 </html>
